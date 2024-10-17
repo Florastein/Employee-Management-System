@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lovan/components/butts.dart';
 import 'package:lovan/screens/employee.dart';
 import 'package:lovan/screens/work.dart';
+import 'package:timelines_plus/timelines_plus.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -229,7 +230,7 @@ class Dashboard extends StatelessWidget {
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
-                              "NET INCOME",
+                              "Active Projects",
                               style: GoogleFonts.poppins(
                                   color: Color.fromRGBO(0, 33, 96, 100),
                                   fontWeight: FontWeight.w600),
@@ -278,6 +279,48 @@ class Dashboard extends StatelessWidget {
               )
             ],
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+            child: Row(
+              children: [
+                Icon(
+                  CupertinoIcons.circle_filled,
+                  size: 15,
+                  color: Colors.blue,
+                ),
+                Text(
+                  "DIVISIONAL OVERVIEW",
+                  style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            child: CustomCard(
+              width: MediaQuery.of(context).size.width * 85 / 100,
+              color: Colors.transparent,
+              child: SizedBox(
+                height: 100, // Define a height for the card
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: List.generate(10, (index) {
+                    return Container(
+                      width: 100,
+                      margin: EdgeInsets.all(8.0),
+                      color: Colors.blue,
+                      child: Center(
+                        child: Text(
+                          'Item $index',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
