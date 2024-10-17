@@ -555,6 +555,38 @@ class GradientBackground extends StatelessWidget {
   }
 }
 
+// class Circle extends StatelessWidget {
+//   final double size;
+//   final Color color1;
+//   final Color color2;
+//   final double opacity;
+
+//   const Circle({
+//     Key? key,
+//     required this.size,
+//     required this.color1,
+//     required this.color2,
+//     this.opacity = 1.0,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: size,
+//       height: size,
+//       decoration: BoxDecoration(
+//         shape: BoxShape.circle,
+//         gradient: RadialGradient(
+//           colors: [
+//             color1.withOpacity(opacity),
+//             color2.withOpacity(opacity),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 class Circle extends StatelessWidget {
   final double size;
   final Color color1;
@@ -582,6 +614,14 @@ class Circle extends StatelessWidget {
             color2.withOpacity(opacity),
           ],
         ),
+        boxShadow: [
+          BoxShadow(
+            color: color2.withOpacity(0.8), // Shadow color
+            blurRadius: 10.0, // Softness of the shadow
+            spreadRadius: 2.0, // Size of the shadow
+            offset: Offset(0, 4), // Position of the shadow
+          ),
+        ],
       ),
     );
   }
