@@ -353,8 +353,8 @@ class Dashboard extends StatelessWidget {
           style: GoogleFonts.poppins(
               fontSize: 24, color: Colors.white, fontWeight: FontWeight.w600),
         ),
-        elevation: 1,
-        shadowColor: Colors.black,
+        elevation: 2,
+        shadowColor: Colors.white,
         backgroundColor: Colors.blue,
       ),
       drawer: Drawer(
@@ -394,6 +394,16 @@ class Dashboard extends StatelessWidget {
                 // Navigate to Work screen
               },
             ),
+            ListTile(
+              leading: Icon(
+                CupertinoIcons.building_2_fill,
+                color: Colors.blue,
+              ),
+              title: Text("Divisions"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            )
           ],
         ),
       ),
@@ -458,32 +468,57 @@ class Dashboard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
               child: CustomCard(
                 borderRadius: 20,
                 width: MediaQuery.of(context).size.width * 0.85,
                 color: Colors.transparent,
                 child: SizedBox(
                   height: 100,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: List.generate(10, (index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.blue,
-                        ),
-                        width: 100,
-                        margin: EdgeInsets.all(8.0),
-                        child: Center(
-                          child: Text(
-                            'Item $index',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                  child: ListView(scrollDirection: Axis.horizontal, children: [
+                    Card(
+                      shadowColor: Colors.white,
+                      color: Colors.blue,
+                      margin: EdgeInsets.all(10),
+                      elevation: 3,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0, vertical: 5),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.circle_filled,
+                                  color: Colors.black,
+                                  size: 10,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "Java Division",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }),
-                  ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Male",
+                              style: GoogleFonts.ubuntu(
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ]),
                 ),
               ),
             )

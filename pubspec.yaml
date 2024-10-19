@@ -38,6 +38,7 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_custom_cards: ^0.2.1
   timelines_plus: ^1.0.3
+  linear_progress_bar: ^1.1.2
 
 dev_dependencies:
   flutter_test:
